@@ -1,0 +1,13 @@
+# Ambientes Virtuais
+venv/
+__pycache__/
+
+# Dados e Bancos de Dados (Nunca suba dados massivos para o Git)
+data/raw/
+data/vectordb/
+
+# Executáveis e Lixos
+tools/
+*.exe
+*.zip
+.env
