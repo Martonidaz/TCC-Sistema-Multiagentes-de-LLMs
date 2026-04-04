@@ -35,6 +35,6 @@ O sistema atua como uma ponte entre o conhecimento de domínio do usuário (manu
 ## 👨‍💻 Autor
 
 **Daniel Marton Barbosa**
-*Engenharia de Computação - Unisal*
+*Estudante de Engenharia de Computação - Unisal*
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Acessar_Perfil-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniel-marton-barbosa/)
