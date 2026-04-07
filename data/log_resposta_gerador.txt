@@ -1,0 +1,8 @@
+Para realizar um duplo clique em uma determinada posição da tela com o PyAutoGUI, você pode usar a função `doubleClick()`. Por exemplo:
+
+```python
+import pyautogui
+pyautogui.doubleClick(x=100, y=200)  # Isso fará um duplo clique na posição (100, 200) da tela.
+```
+
+Lembre-se de substituir `x` e `y` pelos valores correspondentes à localização desejada no seu monitor para o clique do mouse ser executado corretamente.
