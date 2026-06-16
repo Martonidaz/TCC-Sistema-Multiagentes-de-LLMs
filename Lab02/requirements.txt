@@ -1,0 +1,7 @@
+langchain
+langgraph
+ragas
+sentence-transformers
+ollama
+pandas
+numpy
