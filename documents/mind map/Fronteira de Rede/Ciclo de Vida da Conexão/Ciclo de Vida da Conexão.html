@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(()=>{setTimeout(()=>{const{markmap:S,mm:Q}=window,$=new S.Toolbar;$.attach(Q);const I=$.render();I.setAttribute("style","position:absolute;bottom:20px;right:20px"),document.body.append(I)})})()</script><script>((l,U,M,R)=>{const N=l();window.mm=N.Markmap.create("svg#mindmap",(U||N.deriveOptions)(R),M),window.matchMedia("(prefers-color-scheme: dark)").matches&&document.documentElement.classList.add("markmap-dark")})(()=>window.markmap,null,{"content":"Ciclo de Vida da Conex&#xe3;o (WebSocket)","children":[{"content":"1. Handshake (Aperto de M&#xe3;o)","children":[{"content":"Gatilho de Inicializa&#xe7;&#xe3;o","children":[{"content":"O usu&#xe1;rio abre a aba do navegador nos dom&#xed;nios alvo (ex: ChatGPT, Claude, Gemini).","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"O <code>Service Worker</code> da extens&#xe3;o &#xe9; ativado (Wake-up) em segundo plano.","children":[],"payload":{"tag":"li","lines":"5,6"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"Abertura de Canal","children":[{"content":"A extens&#xe3;o faz a leitura da URL p&#xfa;blica do t&#xfa;nel salva no <code>LocalStorage</code> ou <code>IndexedDB</code>.","children":[],"payload":{"tag":"li","lines":"7,8"}},{"content":"Envia uma requisi&#xe7;&#xe3;o HTTP inicial solicitando o &quot;Upgrade&quot; para o protocolo WSS (WebSocket Secure).","children":[],"payload":{"tag":"li","lines":"8,9"}}],"payload":{"tag":"h3","lines":"6,7"}},{"content":"Autentica&#xe7;&#xe3;o Embutida","children":[{"content":"A requisi&#xe7;&#xe3;o de abertura carrega a Chave de Seguran&#xe7;a (Token).","children":[],"payload":{"tag":"li","lines":"10,11"}},{"content":"O servidor Edge (FastAPI) valida o token; se autorizado, a conex&#xe3;o HTTP &#xe9; convertida em um duto de rede cont&#xed;nuo e bidirecional.","children":[],"payload":{"tag":"li","lines":"11,13"}}],"payload":{"tag":"h3","lines":"9,10"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"2. Keep-Alive (Ping/Pong)","children":[{"content":"Preven&#xe7;&#xe3;o de Ociosidade (Timeout)","children":[{"content":"T&#xfa;neis de rede (como o da Cloudflare) e roteadores f&#xed;sicos derrubam automaticamente conex&#xf5;es TCP que ficam muito tempo sem tr&#xe1;fego de dados.","children":[],"payload":{"tag":"li","lines":"15,16"}},{"content":"Ocorre frequentemente quando o usu&#xe1;rio est&#xe1; apenas lendo uma resposta longa ou pensando na pr&#xf3;xima pergunta.","children":[],"payload":{"tag":"li","lines":"16,17"}}],"payload":{"tag":"h3","lines":"14,15"}},{"content":"O Mecanismo de Pulso (Heartbeat)","children":[{"content":"<strong>Ping (Upstream):</strong> A extens&#xe3;o do navegador envia um pacote de rede min&#xfa;sculo (apenas alguns bytes) a cada 30 segundos de forma programada.","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"<strong>Pong (Downstream):</strong> O servidor Edge recebe o &quot;ping&quot; e responde imediatamente com um pacote &quot;pong&quot;.","children":[],"payload":{"tag":"li","lines":"19,20"}},{"content":"<strong>Resultado:</strong> A infraestrutura de rede entende que a conex&#xe3;o est&#xe1; ativa, mantendo o t&#xfa;nel aberto para quando o <code>MutationObserver</code> precisar enviar blocos de texto reais.","children":[],"payload":{"tag":"li","lines":"20,22"}}],"payload":{"tag":"h3","lines":"17,18"}}],"payload":{"tag":"h2","lines":"13,14"}},{"content":"3. Desconex&#xe3;o (Teardown)","children":[{"content":"Eventos de Encerramento","children":[{"content":"O usu&#xe1;rio fecha a aba do navegador.","children":[],"payload":{"tag":"li","lines":"24,25"}},{"content":"O usu&#xe1;rio digita uma URL diferente e sai do site da IA.","children":[],"payload":{"tag":"li","lines":"25,26"}},{"content":"O computador do usu&#xe1;rio entra em suspens&#xe3;o ou perde a rede (ex: troca de Wi-Fi para 4G).","children":[],"payload":{"tag":"li","lines":"26,27"}}],"payload":{"tag":"h3","lines":"23,24"}},{"content":"Rea&#xe7;&#xe3;o do Cliente (Extens&#xe3;o)","children":[{"content":"A API nativa de WebSockets do navegador emite o evento <code>onclose</code>.","children":[],"payload":{"tag":"li","lines":"28,29"}},{"content":"O <code>Service Worker</code> encerra o ciclo de vida daquela sess&#xe3;o e paralisa a captura de tela.","children":[],"payload":{"tag":"li","lines":"29,30"}}],"payload":{"tag":"h3","lines":"27,28"}},{"content":"Rea&#xe7;&#xe3;o do Servidor (Edge)","children":[{"content":"O FastAPI detecta a quebra imediata do duto de rede (exce&#xe7;&#xe3;o <code>WebSocketDisconnect</code>).","children":[],"payload":{"tag":"li","lines":"31,32"}},{"content":"<strong>Limpeza de Mem&#xf3;ria (Garbage Collection):</strong> O backend deleta o buffer da &quot;Janela Deslizante&quot; alocado na mem&#xf3;ria RAM do notebook, prevenindo vazamento de mem&#xf3;ria (Memory Leak) ao longo de semanas de uso.","children":[],"payload":{"tag":"li","lines":"32,33"}},{"content":"<strong>Resfriamento de Hardware:</strong> Sem conex&#xf5;es ativas, o sistema entra em repouso, permitindo que o Ollama eventualmente descarregue os modelos da VRAM da GeForce 940MX.","children":[],"payload":{"tag":"li","lines":"33,34"}}],"payload":{"tag":"h3","lines":"30,31"}}],"payload":{"tag":"h2","lines":"22,23"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(()=>{setTimeout(()=>{const{markmap:S,mm:Q}=window,$=new S.Toolbar;$.attach(Q);const I=$.render();I.setAttribute("style","position:absolute;bottom:20px;right:20px"),document.body.append(I)})})()</script><script>((l,U,M,R)=>{const N=l();window.mm=N.Markmap.create("svg#mindmap",(U||N.deriveOptions)(R),M),window.matchMedia("(prefers-color-scheme: dark)").matches&&document.documentElement.classList.add("markmap-dark")})(()=>window.markmap,null,{"content":"Infraestrutura e Hardware (Ambiente Edge)","children":[{"content":"1. Componentes F&#xed;sicos (Hardware)","children":[{"content":"Processador (CPU)","children":[{"content":"<strong>Fun&#xe7;&#xe3;o:</strong> Orquestra&#xe7;&#xe3;o geral do sistema e manipula&#xe7;&#xe3;o do tr&#xe1;fego de rede (I/O).","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"<strong>Carga de Trabalho:</strong> Executa o <em>Event Loop</em> ass&#xed;ncrono do FastAPI, gerenciando as conex&#xf5;es de WebSockets ativas e orquestrando o roteamento l&#xf3;gico dos agentes do LangGraph sem bloquear o sistema.","children":[],"payload":{"tag":"li","lines":"5,6"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"Mem&#xf3;ria RAM","children":[{"content":"<strong>Fun&#xe7;&#xe3;o:</strong> Sustenta&#xe7;&#xe3;o do ecossistema e gerenciamento de estado.","children":[],"payload":{"tag":"li","lines":"7,8"}},{"content":"<strong>Carga de Trabalho:</strong> Mant&#xe9;m ativas as imagens do Docker e armazena os buffers das &quot;Janelas Deslizantes&quot; (textos recentes capturados).","children":[],"payload":{"tag":"li","lines":"8,9"}},{"content":"<strong>Papel de Escape (Fallback):</strong> Atua como mem&#xf3;ria de transbordo (<em>Offloading</em>). Se os modelos do Ollama ultrapassarem a VRAM, as camadas excedentes s&#xe3;o despejadas na RAM, garantindo que o servidor n&#xe3;o trave (embora ocorra perda de velocidade).","children":[],"payload":{"tag":"li","lines":"9,10"}}],"payload":{"tag":"h3","lines":"6,7"}},{"content":"GPU NVIDIA GeForce 940MX (O Gargalo Arquitet&#xf4;nico)","children":[{"content":"<strong>Capacidade Fict&#xed;cia/Real:</strong> Estritamente limitada a 2GB de VRAM.","children":[],"payload":{"tag":"li","lines":"11,12"}},{"content":"<strong>Fun&#xe7;&#xe3;o:</strong> Acelera&#xe7;&#xe3;o de processamento paralelo para c&#xe1;lculo de matrizes vetoriais e tensores neurais.","children":[],"payload":{"tag":"li","lines":"12,13"}},{"content":"<strong>Impacto no Design:</strong> &#xc9; o principal limitador do projeto. A impossibilidade de carregar LLMs tradicionais for&#xe7;a a arquitetura a depender exclusivamente de SLMs (Small Language Models) quantizados em 4-bits e de modelos de Embeddings de baix&#xed;ssimo peso.","children":[],"payload":{"tag":"li","lines":"13,15"}}],"payload":{"tag":"h3","lines":"10,11"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"2. Camada de Sistema Operacional (Host)","children":[{"content":"Ubuntu Server","children":[{"content":"<strong>A Escolha Arquitet&#xf4;nica:</strong> Ao contr&#xe1;rio de sistemas desktop (Windows ou Ubuntu Desktop), a vers&#xe3;o Server n&#xe3;o executa um ambiente gr&#xe1;fico pesado. Isso impede que a interface do SO consuma VRAM e RAM desnecessariamente, dedicando 100% dos recursos dispon&#xed;veis na sua m&#xe1;quina para os c&#xe1;lculos de IA.","children":[],"payload":{"tag":"li","lines":"17,18"}}],"payload":{"tag":"h3","lines":"16,17"}},{"content":"NVIDIA Drivers + CUDA Toolkit","children":[{"content":"<strong>NVIDIA Drivers:</strong> O software de baixo n&#xed;vel que permite ao kernel do Linux (Ubuntu) se comunicar fisicamente com a placa GeForce.","children":[],"payload":{"tag":"li","lines":"19,20"}},{"content":"<strong>CUDA Toolkit:</strong> A API de computa&#xe7;&#xe3;o paralela propriet&#xe1;ria da NVIDIA. &#xc9; a &quot;linguagem&quot; que o Ollama utiliza para disparar as equa&#xe7;&#xf5;es matem&#xe1;ticas complexas (como as usadas no RAGAS e Entropia) diretamente para os n&#xfa;cleos da placa de v&#xed;deo.","children":[],"payload":{"tag":"li","lines":"20,21"}}],"payload":{"tag":"h3","lines":"18,19"}},{"content":"Docker Engine + NVIDIA Container Toolkit","children":[{"content":"<strong>Docker Engine:</strong> O orquestrador de cont&#xea;ineres que isola os ambientes (T&#xfa;nel Cloudflare, FastAPI e Ollama), eliminando problemas de conflito de depend&#xea;ncias Python ou de rede.","children":[],"payload":{"tag":"li","lines":"22,23"}},{"content":"<strong>NVIDIA Container Toolkit (O Ponteiro):</strong> A pe&#xe7;a de infraestrutura mais cr&#xed;tica. Cont&#xea;ineres normais rodam isolados e &quot;cegos&quot; para a placa de v&#xed;deo f&#xed;sica do notebook. Esse plugin permite o <em>GPU Passthrough</em>, autorizando o cont&#xea;iner do Ollama a assumir o controle direto da VRAM da GeForce 940MX.","children":[],"payload":{"tag":"li","lines":"23,24"}}],"payload":{"tag":"h3","lines":"21,22"}}],"payload":{"tag":"h2","lines":"15,16"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+</body>
+</html>

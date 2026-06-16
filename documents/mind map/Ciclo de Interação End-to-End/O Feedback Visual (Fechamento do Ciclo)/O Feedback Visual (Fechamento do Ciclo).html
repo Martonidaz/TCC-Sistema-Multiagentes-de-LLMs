@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(()=>{setTimeout(()=>{const{markmap:S,mm:Q}=window,$=new S.Toolbar;$.attach(Q);const I=$.render();I.setAttribute("style","position:absolute;bottom:20px;right:20px"),document.body.append(I)})})()</script><script>((l,U,M,R)=>{const N=l();window.mm=N.Markmap.create("svg#mindmap",(U||N.deriveOptions)(R),M),window.matchMedia("(prefers-color-scheme: dark)").matches&&document.documentElement.classList.add("markmap-dark")})(()=>window.markmap,null,{"content":"O Feedback Visual (Fechamento do Ciclo)","children":[{"content":"1. A Devolu&#xe7;&#xe3;o dos Dados (Backend -&gt; Cliente)","children":[{"content":"Consolida&#xe7;&#xe3;o Matem&#xe1;tica","children":[{"content":"O backend finaliza e consolida os c&#xe1;lculos executados em paralelo.","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"Gera um pacote de dados estruturado em formato JSON contendo as notas (ex: <code>{ &quot;msg_id&quot;: &quot;123&quot;, &quot;entropia&quot;: 0.42, &quot;fidelidade&quot;: 0.89 }</code>).","children":[],"payload":{"tag":"li","lines":"5,6"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"Transmiss&#xe3;o Downstream","children":[{"content":"O <em>payload</em> viaja do Servidor Edge de volta para a extens&#xe3;o no navegador.","children":[],"payload":{"tag":"li","lines":"7,8"}},{"content":"O tr&#xe2;nsito ocorre de forma reversa atrav&#xe9;s do canal seguro via Cloudflare Tunnel (WSS).","children":[],"payload":{"tag":"li","lines":"8,10"}}],"payload":{"tag":"h3","lines":"6,7"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"2. Atualiza&#xe7;&#xe3;o Cir&#xfa;rgica do DOM (UI Reativa)","children":[{"content":"Intercepta&#xe7;&#xe3;o Local","children":[{"content":"O <code>Content Script</code> da extens&#xe3;o recebe e processa o JSON em tempo real.","children":[],"payload":{"tag":"li","lines":"12,13"}}],"payload":{"tag":"h3","lines":"11,12"}},{"content":"Direcionamento Exato","children":[{"content":"O script utiliza o identificador da mensagem (<code>msg_id</code>) para localizar na &#xe1;rvore do DOM especificamente o &quot;Term&#xf4;metro de Alucina&#xe7;&#xe3;o&quot; atrelado &#xe0;quele bal&#xe3;o de resposta.","children":[],"payload":{"tag":"li","lines":"14,15"}}],"payload":{"tag":"h3","lines":"13,14"}},{"content":"Feedback Visual Reativo","children":[{"content":"A interface gr&#xe1;fica &#xe9; alterada dinamicamente via JavaScript sem a necessidade de recarregar a p&#xe1;gina.","children":[],"payload":{"tag":"li","lines":"16,17"}},{"content":"<strong>A&#xe7;&#xe3;o:</strong> A barra de progresso gr&#xe1;fica de Fidelidade &#xe9; preenchida instantaneamente (ex: subindo para 89% e assumindo a cor indicativa verde).","children":[],"payload":{"tag":"li","lines":"17,19"}}],"payload":{"tag":"h3","lines":"15,16"}}],"payload":{"tag":"h2","lines":"10,11"}},{"content":"3. Arquivamento e Reciclagem (P&#xf3;s-Processamento)","children":[{"content":"Detec&#xe7;&#xe3;o de Conclus&#xe3;o","children":[{"content":"A extens&#xe3;o mant&#xe9;m a vigil&#xe2;ncia sobre os bot&#xf5;es da interface nativa da IA.","children":[],"payload":{"tag":"li","lines":"21,22"}},{"content":"O ciclo ativo &#xe9; encerrado assim que o LLM sinaliza o fim da gera&#xe7;&#xe3;o da resposta (marcado pelo desaparecimento do bot&#xe3;o de <em>stop</em>).","children":[],"payload":{"tag":"li","lines":"22,23"}}],"payload":{"tag":"h3","lines":"20,21"}},{"content":"Armazenamento Persistente","children":[{"content":"As m&#xe9;tricas finais daquela intera&#xe7;&#xe3;o (m&#xe9;dias de Entropia e Fidelidade) s&#xe3;o consolidadas pelo cliente.","children":[],"payload":{"tag":"li","lines":"24,25"}},{"content":"Os dados s&#xe3;o gravados de forma permanente no banco local <code>IndexedDB</code> do navegador do usu&#xe1;rio.","children":[],"payload":{"tag":"li","lines":"25,26"}}],"payload":{"tag":"h3","lines":"23,24"}},{"content":"Retroalimenta&#xe7;&#xe3;o do Sistema","children":[{"content":"O hist&#xf3;rico atualizado enriquece o banco de dados.","children":[],"payload":{"tag":"li","lines":"27,28"}},{"content":"Esse novo conhecimento alimentar&#xe1; as predi&#xe7;&#xf5;es de Roteamento Sem&#xe2;ntico na pr&#xf3;xima vez que o usu&#xe1;rio digitar um prompt, fechando o ciclo de aprendizado cont&#xed;nuo.","children":[],"payload":{"tag":"li","lines":"28,29"}}],"payload":{"tag":"h3","lines":"26,27"}}],"payload":{"tag":"h2","lines":"19,20"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(()=>{setTimeout(()=>{const{markmap:S,mm:Q}=window,$=new S.Toolbar;$.attach(Q);const I=$.render();I.setAttribute("style","position:absolute;bottom:20px;right:20px"),document.body.append(I)})})()</script><script>((l,U,M,R)=>{const N=l();window.mm=N.Markmap.create("svg#mindmap",(U||N.deriveOptions)(R),M),window.matchMedia("(prefers-color-scheme: dark)").matches&&document.documentElement.classList.add("markmap-dark")})(()=>window.markmap,null,{"content":"Ambiente Cliente (Extens&#xe3;o do Navegador)","children":[{"content":"1. Navegador Web (Interface)","children":[{"content":"Plataformas Alvo","children":[{"content":"ChatGPT","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"Claude","children":[],"payload":{"tag":"li","lines":"5,6"}},{"content":"Gemini","children":[],"payload":{"tag":"li","lines":"6,7"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"Estrutura Inspecionada (DOM)","children":[{"content":"Caixa de Texto (Textarea)","children":[],"payload":{"tag":"li","lines":"8,9"}},{"content":"Container de Resposta Din&#xe2;mica (Streaming)","children":[],"payload":{"tag":"li","lines":"9,11"}}],"payload":{"tag":"h3","lines":"7,8"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"2. Extens&#xe3;o (O Plugin)","children":[{"content":"Interface e Configura&#xe7;&#xe3;o","children":[{"content":"<code>manifest.json</code> (Permiss&#xf5;es de rede e abas)","children":[],"payload":{"tag":"li","lines":"13,14"}},{"content":"P&#xe1;gina de Op&#xe7;&#xf5;es (Configura&#xe7;&#xe3;o da URL do T&#xfa;nel)","children":[],"payload":{"tag":"li","lines":"14,15"}},{"content":"Painel Visual Injetado (Term&#xf4;metro e Gr&#xe1;ficos)","children":[],"payload":{"tag":"li","lines":"15,16"}}],"payload":{"tag":"h3","lines":"12,13"}},{"content":"Armazenamento Local","children":[{"content":"IndexedDB (Guarda hist&#xf3;rico longo: Vetores, Modelos, Scores)","children":[],"payload":{"tag":"li","lines":"17,18"}},{"content":"LocalStorage (Guarda ID de sess&#xe3;o e URL do t&#xfa;nel)","children":[],"payload":{"tag":"li","lines":"18,19"}}],"payload":{"tag":"h3","lines":"16,17"}},{"content":"Content Script (Injetado na p&#xe1;gina)","children":[{"content":"Event Listeners (Captura digita&#xe7;&#xe3;o do prompt)","children":[],"payload":{"tag":"li","lines":"20,21"}},{"content":"Manipulador de DOM (Desenha sugest&#xf5;es e painel na tela)","children":[],"payload":{"tag":"li","lines":"21,22"}},{"content":"MutationObserver (Captura a resposta do LLM palavra por palavra)","children":[],"payload":{"tag":"li","lines":"22,23"}}],"payload":{"tag":"h3","lines":"19,20"}},{"content":"Service Worker (Processo em Background)","children":[{"content":"Roteador de Mensagens Internas","children":[],"payload":{"tag":"li","lines":"24,25"}},{"content":"Cliente WebSocket (Mant&#xe9;m conex&#xe3;o com o Edge)","children":[],"payload":{"tag":"li","lines":"25,27"}}],"payload":{"tag":"h3","lines":"23,24"}}],"payload":{"tag":"h2","lines":"11,12"}},{"content":"3. Fluxo de Vida dos Eventos","children":[{"content":"Fase 1: Roteamento Sem&#xe2;ntico","children":[{"content":"1. Usu&#xe1;rio digita na caixa e pausa","children":[],"payload":{"tag":"li","lines":"29,30","listIndex":1}},{"content":"2. Extens&#xe3;o consulta IndexedDB por contextos similares","children":[],"payload":{"tag":"li","lines":"30,31","listIndex":2}},{"content":"3. Extens&#xe3;o sugere mudan&#xe7;a de IA baseada no hist&#xf3;rico","children":[],"payload":{"tag":"li","lines":"31,32","listIndex":3}}],"payload":{"tag":"h3","lines":"28,29"}},{"content":"Fase 2: Otimiza&#xe7;&#xe3;o","children":[{"content":"4. Usu&#xe1;rio aceita a sugest&#xe3;o","children":[],"payload":{"tag":"li","lines":"33,34","listIndex":4}},{"content":"5. Extens&#xe3;o envia texto ao servidor via WebSocket","children":[],"payload":{"tag":"li","lines":"34,35","listIndex":5}},{"content":"6. Servidor devolve o prompt reescrito","children":[],"payload":{"tag":"li","lines":"35,36","listIndex":6}},{"content":"7. Extens&#xe3;o substitui o texto na caixa e clica em enviar","children":[],"payload":{"tag":"li","lines":"36,37","listIndex":7}}],"payload":{"tag":"h3","lines":"32,33"}},{"content":"Fase 3: Monitoramento de Alucina&#xe7;&#xe3;o","children":[{"content":"8. LLM come&#xe7;a a gerar resposta na tela","children":[],"payload":{"tag":"li","lines":"38,39","listIndex":8}},{"content":"9. MutationObserver intercepta fragmentos de texto","children":[],"payload":{"tag":"li","lines":"39,40","listIndex":9}},{"content":"10. Service Worker envia fragmentos via WebSocket","children":[],"payload":{"tag":"li","lines":"40,41","listIndex":10}},{"content":"11. Edge devolve os Scores (Entropia/Fidelidade)","children":[],"payload":{"tag":"li","lines":"41,42","listIndex":11}},{"content":"12. Extens&#xe3;o atualiza os visuais na tela em tempo real","children":[],"payload":{"tag":"li","lines":"42,43","listIndex":12}},{"content":"13. Salva scores finais no IndexedDB","children":[],"payload":{"tag":"li","lines":"43,45","listIndex":13}}],"payload":{"tag":"h3","lines":"37,38"}}],"payload":{"tag":"h2","lines":"27,28"}},{"content":"4. Fronteira de Rede","children":[{"content":"Conex&#xe3;o WSS (WebSocket Secure)","children":[],"payload":{"tag":"li","lines":"46,47"}},{"content":"Envio de dados pela Internet at&#xe9; o T&#xfa;nel Cloudflare","children":[],"payload":{"tag":"li","lines":"47,48"}}],"payload":{"tag":"h2","lines":"45,46"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(()=>{setTimeout(()=>{const{markmap:S,mm:Q}=window,$=new S.Toolbar;$.attach(Q);const I=$.render();I.setAttribute("style","position:absolute;bottom:20px;right:20px"),document.body.append(I)})})()</script><script>((l,U,M,R)=>{const N=l();window.mm=N.Markmap.create("svg#mindmap",(U||N.deriveOptions)(R),M),window.matchMedia("(prefers-color-scheme: dark)").matches&&document.documentElement.classList.add("markmap-dark")})(()=>window.markmap,null,{"content":"Orquestra&#xe7;&#xe3;o de Cont&#xea;ineres (Rede Docker)","children":[{"content":"1. Cont&#xea;iner 1: T&#xfa;nel Reverso (Exposi&#xe7;&#xe3;o)","children":[{"content":"Imagem Base","children":[{"content":"<code>cloudflare/cloudflared</code>","children":[],"payload":{"tag":"li","lines":"4,5"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"Fun&#xe7;&#xf5;es de Rede","children":[{"content":"Recebe tr&#xe1;fego WSS (WebSocket Secure) criptografado da internet.","children":[],"payload":{"tag":"li","lines":"6,7"}},{"content":"Roteia pacotes de forma transparente para o cont&#xea;iner do FastAPI.","children":[],"payload":{"tag":"li","lines":"7,8"}},{"content":"Contorna restri&#xe7;&#xf5;es de infraestrutura (dispensa abertura de portas no roteador f&#xed;sico).","children":[],"payload":{"tag":"li","lines":"8,10"}}],"payload":{"tag":"h3","lines":"5,6"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"2. Cont&#xea;iner 2: Backend Multi-Agente (Orquestra&#xe7;&#xe3;o)","children":[{"content":"Framework Web (FastAPI + Uvicorn)","children":[{"content":"Gerenciamento de conex&#xf5;es ativas nos Endpoints WebSocket.","children":[],"payload":{"tag":"li","lines":"12,13"}},{"content":"Controle de estado em mem&#xf3;ria da Janela Deslizante (preservando estritamente as &#xfa;ltimas 3 intera&#xe7;&#xf5;es).","children":[],"payload":{"tag":"li","lines":"13,14"}}],"payload":{"tag":"h3","lines":"11,12"}},{"content":"L&#xf3;gica Multi-Agente (LangGraph)","children":[{"content":"<strong>Agente Roteador:</strong> Encaminha requisi&#xe7;&#xf5;es baseadas em similaridade de contexto.","children":[],"payload":{"tag":"li","lines":"15,16"}},{"content":"<strong>Agente Otimizador:</strong> Aplica t&#xe9;cnicas de <em>Query Rewriting</em> para enriquecer o prompt ocultamente.","children":[],"payload":{"tag":"li","lines":"16,17"}},{"content":"<strong>Agente Avaliador:</strong> Consolida os dados e aplica a matem&#xe1;tica da Entropia e m&#xe9;tricas RAGAS.","children":[],"payload":{"tag":"li","lines":"17,18"}}],"payload":{"tag":"h3","lines":"14,15"}},{"content":"Comunica&#xe7;&#xe3;o Interna (Cliente HTTP)","children":[{"content":"Executa chamadas ass&#xed;ncronas (REST) locais para o Ollama sem bloquear o fluxo principal de rede.","children":[],"payload":{"tag":"li","lines":"19,21"}}],"payload":{"tag":"h3","lines":"18,19"}}],"payload":{"tag":"h2","lines":"10,11"}},{"content":"3. Cont&#xea;iner 3: Motor de Infer&#xea;ncia Limitada (Hardware)","children":[{"content":"Ferramenta de Gest&#xe3;o","children":[{"content":"<strong>Ollama:</strong> Orquestra o carregamento de pesos neurais e gerencia estritamente o limite de 2GB de VRAM da GPU NVIDIA GeForce 940MX.","children":[],"payload":{"tag":"li","lines":"23,24"}}],"payload":{"tag":"h3","lines":"22,23"}},{"content":"Modelo SLM Quantizado (~1.3GB)","children":[{"content":"<strong>Exemplo de Imagem:</strong> <code>Llama-3.2-1B-Instruct-Q4</code> (Arquitetura 4-bits).","children":[],"payload":{"tag":"li","lines":"25,26"}},{"content":"<strong>Atribui&#xe7;&#xe3;o A:</strong> Otimizar o prompt cru do usu&#xe1;rio (Capacidade Text-to-Text).","children":[],"payload":{"tag":"li","lines":"26,27"}},{"content":"<strong>Atribui&#xe7;&#xe3;o B:</strong> Retornar os tensores de <em>Logprobs</em> (Base para o c&#xe1;lculo da Entropia de Shannon).","children":[],"payload":{"tag":"li","lines":"27,28"}}],"payload":{"tag":"h3","lines":"24,25"}},{"content":"Modelo de Embeddings (~250MB)","children":[{"content":"<strong>Exemplo de Imagem:</strong> <code>nomic-embed-text</code>.","children":[],"payload":{"tag":"li","lines":"29,30"}},{"content":"<strong>Atribui&#xe7;&#xe3;o &#xda;nica:</strong> Transformar blocos de texto puro em matrizes vetoriais para viabilizar o c&#xe1;lculo geom&#xe9;trico de Fidelidade (Similaridade do Cosseno).","children":[],"payload":{"tag":"li","lines":"30,31"}}],"payload":{"tag":"h3","lines":"28,29"}}],"payload":{"tag":"h2","lines":"21,22"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(()=>{setTimeout(()=>{const{markmap:S,mm:Q}=window,$=new S.Toolbar;$.attach(Q);const I=$.render();I.setAttribute("style","position:absolute;bottom:20px;right:20px"),document.body.append(I)})})()</script><script>((l,U,M,R)=>{const N=l();window.mm=N.Markmap.create("svg#mindmap",(U||N.deriveOptions)(R),M),window.matchMedia("(prefers-color-scheme: dark)").matches&&document.documentElement.classList.add("markmap-dark")})(()=>window.markmap,null,{"content":"Infraestrutura de Exposi&#xe7;&#xe3;o (T&#xfa;nel Reverso)","children":[{"content":"1. O Desafio F&#xed;sico (NAT e IP Din&#xe2;mico)","children":[{"content":"Isolamento de Rede","children":[{"content":"O servidor Edge (seu notebook rodando Ubuntu) encontra-se atr&#xe1;s de um roteador dom&#xe9;stico ou universit&#xe1;rio.","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"<strong>NAT (Network Address Translation):</strong> O provedor de internet n&#xe3;o fornece um IP p&#xfa;blico exclusivo, mascarando m&#xfa;ltiplos dispositivos sob um &#xfa;nico endere&#xe7;o.","children":[],"payload":{"tag":"li","lines":"5,6"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"Bloqueio de Provedores","children":[{"content":"Portas de entrada (Inbound) s&#xe3;o travadas pelo provedor por padr&#xe3;o para evitar ataques.","children":[],"payload":{"tag":"li","lines":"7,8"}},{"content":"<strong>Consequ&#xea;ncia:</strong> Um celular na rede 4G n&#xe3;o consegue &quot;enxergar&quot; ou se conectar ao servidor local para enviar os dados da extens&#xe3;o.","children":[],"payload":{"tag":"li","lines":"8,10"}}],"payload":{"tag":"h3","lines":"6,7"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"2. A Solu&#xe7;&#xe3;o: Cloudflare Tunnel (<code>cloudflared</code>)","children":[{"content":"Mec&#xe2;nica de Conex&#xe3;o (Outbound)","children":[{"content":"Um cont&#xea;iner Docker dedicado (<code>cloudflared</code>) roda no servidor Edge.","children":[],"payload":{"tag":"li","lines":"12,13"}},{"content":"Em vez de abrir uma porta e esperar conex&#xf5;es, o cont&#xea;iner inicia uma conex&#xe3;o proativa de sa&#xed;da (Outbound) para a infraestrutura global da Cloudflare.","children":[],"payload":{"tag":"li","lines":"13,14"}}],"payload":{"tag":"h3","lines":"11,12"}},{"content":"Roteamento Transparente","children":[{"content":"A Cloudflare gera uma URL p&#xfa;blica est&#xe1;vel (ex: <code>seu-tcc.trycloudflare.com</code>).","children":[],"payload":{"tag":"li","lines":"15,16"}},{"content":"Quando a extens&#xe3;o no navegador do celular acessa essa URL, a Cloudflare captura o pacote e o roteia &quot;por dentro&quot; do t&#xfa;nel j&#xe1; aberto.","children":[],"payload":{"tag":"li","lines":"16,17"}},{"content":"O tr&#xe1;fego desemboca diretamente na porta <code>8000</code> do orquestrador local (FastAPI), contornando totalmente as restri&#xe7;&#xf5;es do roteador f&#xed;sico.","children":[],"payload":{"tag":"li","lines":"17,19"}}],"payload":{"tag":"h3","lines":"14,15"}}],"payload":{"tag":"h2","lines":"10,11"}},{"content":"3. Criptografia Nativa e Protocolos Obrigat&#xf3;rios","children":[{"content":"SSL/TLS Autom&#xe1;tico","children":[{"content":"A infraestrutura da Cloudflare aplica certificados de seguran&#xe7;a automaticamente na URL p&#xfa;blica gerada, sem necessidade de configura&#xe7;&#xf5;es manuais de chaves locais.","children":[],"payload":{"tag":"li","lines":"21,22"}},{"content":"Garante criptografia de ponta a ponta.","children":[],"payload":{"tag":"li","lines":"22,23"}}],"payload":{"tag":"h3","lines":"20,21"}},{"content":"O Requisito WSS (WebSocket Secure)","children":[{"content":"<strong>Bloqueio de Navegador:</strong> Navegadores modernos imp&#xf5;em uma pol&#xed;tica de seguran&#xe7;a r&#xed;gida: scripts rodando em p&#xe1;ginas seguras (<code>https://chatgpt.com</code>) s&#xe3;o terminantemente proibidos de abrir conex&#xf5;es de rede inseguras (<code>ws://</code>).","children":[],"payload":{"tag":"li","lines":"24,25"}},{"content":"<strong>A Resolu&#xe7;&#xe3;o:</strong> O t&#xfa;nel converte o tr&#xe1;fego envelopando-o em <code>wss://</code>. O tr&#xe1;fego chega criptografado pela internet e o cont&#xea;iner <code>cloudflared</code> o repassa internamente de forma limpa para o FastAPI, resolvendo a exig&#xea;ncia dos sites de LLM.","children":[],"payload":{"tag":"li","lines":"25,26"}}],"payload":{"tag":"h3","lines":"23,24"}}],"payload":{"tag":"h2","lines":"19,20"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+</body>
+</html>

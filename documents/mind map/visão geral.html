@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(()=>{setTimeout(()=>{const{markmap:S,mm:Q}=window,$=new S.Toolbar;$.attach(Q);const I=$.render();I.setAttribute("style","position:absolute;bottom:20px;right:20px"),document.body.append(I)})})()</script><script>((l,U,M,R)=>{const N=l();window.mm=N.Markmap.create("svg#mindmap",(U||N.deriveOptions)(R),M),window.matchMedia("(prefers-color-scheme: dark)").matches&&document.documentElement.classList.add("markmap-dark")})(()=>window.markmap,null,{"content":"Sistema de Observabilidade de IA (Vis&#xe3;o Geral)","children":[{"content":"1. Ambiente Cliente (Extens&#xe3;o do Navegador)","children":[{"content":"Interface Web","children":[{"content":"Chatbots Comerciais (ChatGPT, Claude, Gemini)","children":[],"payload":{"tag":"li","lines":"4,5"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"O &quot;Observador&quot; (Extens&#xe3;o)","children":[{"content":"Painel Visual (Term&#xf4;metro e Hist&#xf3;rico)","children":[],"payload":{"tag":"li","lines":"6,7"}},{"content":"MutationObserver (Captura a gera&#xe7;&#xe3;o de texto em tempo real)","children":[],"payload":{"tag":"li","lines":"7,8"}},{"content":"IndexedDB (Banco de dados de hist&#xf3;rico e prefer&#xea;ncias locais)","children":[],"payload":{"tag":"li","lines":"8,10"}}],"payload":{"tag":"h3","lines":"5,6"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"2. Fronteira de Rede (Comunica&#xe7;&#xe3;o)","children":[{"content":"Conex&#xe3;o Bidirecional","children":[{"content":"WebSockets (Streaming de dados sem travar o cliente)","children":[],"payload":{"tag":"li","lines":"12,13"}}],"payload":{"tag":"h3","lines":"11,12"}},{"content":"Seguran&#xe7;a e Acesso Externo","children":[{"content":"Cloudflare Tunnel (Exposi&#xe7;&#xe3;o segura do localhost para a internet)","children":[],"payload":{"tag":"li","lines":"14,16"}}],"payload":{"tag":"h3","lines":"13,14"}}],"payload":{"tag":"h2","lines":"10,11"}},{"content":"3. Ambiente Edge (Servidor Local Ubuntu)","children":[{"content":"Orquestra&#xe7;&#xe3;o e L&#xf3;gica","children":[{"content":"FastAPI (Gerenciamento de conex&#xf5;es ass&#xed;ncronas)","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"LangGraph (Sistemas Multi-Agente: Roteador, Otimizador, Avaliador)","children":[],"payload":{"tag":"li","lines":"19,20"}}],"payload":{"tag":"h3","lines":"17,18"}},{"content":"Motor de Infer&#xea;ncia (Restrito por Hardware)","children":[{"content":"Docker + Ollama","children":[],"payload":{"tag":"li","lines":"21,22"}},{"content":"Gest&#xe3;o de VRAM (Otimizado para a GeForce 940MX 2GB)","children":[],"payload":{"tag":"li","lines":"22,23"}},{"content":"SLM Quantizado (C&#xe1;lculo de Entropia e Reescrita de Prompt)","children":[],"payload":{"tag":"li","lines":"23,24"}},{"content":"Modelo de Embeddings (C&#xe1;lculo de Relev&#xe2;ncia e Fidelidade)","children":[],"payload":{"tag":"li","lines":"24,26"}}],"payload":{"tag":"h3","lines":"20,21"}}],"payload":{"tag":"h2","lines":"16,17"}},{"content":"4. Ciclo de Intera&#xe7;&#xe3;o End-to-End","children":[{"content":"Fase Pr&#xe9;-Envio","children":[{"content":"1. Usu&#xe1;rio digita o prompt no navegador","children":[],"payload":{"tag":"li","lines":"28,29","listIndex":1}},{"content":"2. Extens&#xe3;o aciona Agente Roteador para Sugest&#xe3;o de IA","children":[],"payload":{"tag":"li","lines":"29,30","listIndex":2}},{"content":"3. (Opcional) Agente Otimizador melhora e reescreve o prompt no Edge","children":[],"payload":{"tag":"li","lines":"30,31","listIndex":3}}],"payload":{"tag":"h3","lines":"27,28"}},{"content":"Fase P&#xf3;s-Envio (Tempo Real)","children":[{"content":"4. LLM Comercial gera a resposta em streaming","children":[],"payload":{"tag":"li","lines":"32,33","listIndex":4}},{"content":"5. Extens&#xe3;o captura e envia blocos via WebSocket","children":[],"payload":{"tag":"li","lines":"33,34","listIndex":5}},{"content":"6. Servidor Edge calcula Entropia e Fidelidade matematicamente","children":[],"payload":{"tag":"li","lines":"34,35","listIndex":6}},{"content":"7. Extens&#xe3;o atualiza os gr&#xe1;ficos do usu&#xe1;rio em tempo real","children":[],"payload":{"tag":"li","lines":"35,36","listIndex":7}}],"payload":{"tag":"h3","lines":"31,32"}}],"payload":{"tag":"h2","lines":"26,27"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+</body>
+</html>

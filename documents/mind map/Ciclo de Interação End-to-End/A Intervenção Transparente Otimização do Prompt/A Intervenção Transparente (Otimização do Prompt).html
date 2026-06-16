@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(()=>{setTimeout(()=>{const{markmap:S,mm:Q}=window,$=new S.Toolbar;$.attach(Q);const I=$.render();I.setAttribute("style","position:absolute;bottom:20px;right:20px"),document.body.append(I)})})()</script><script>((l,U,M,R)=>{const N=l();window.mm=N.Markmap.create("svg#mindmap",(U||N.deriveOptions)(R),M),window.matchMedia("(prefers-color-scheme: dark)").matches&&document.documentElement.classList.add("markmap-dark")})(()=>window.markmap,null,{"content":"A Interven&#xe7;&#xe3;o Transparente (Otimiza&#xe7;&#xe3;o do Prompt)","children":[{"content":"1. O Aceite (Gatilho do Usu&#xe1;rio)","children":[{"content":"Decis&#xe3;o na Interface","children":[{"content":"O usu&#xe1;rio visualiza o pop-up preditivo sugerido pela extens&#xe3;o.","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"Clica ativamente no bot&#xe3;o &quot;Aceitar Otimiza&#xe7;&#xe3;o&quot;.","children":[],"payload":{"tag":"li","lines":"5,6"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"Disparo da A&#xe7;&#xe3;o","children":[{"content":"O <code>Content Script</code> empacota a solicita&#xe7;&#xe3;o.","children":[],"payload":{"tag":"li","lines":"7,8"}},{"content":"Despacha um novo payload via WebSocket (WSS) para o servidor Edge com a instru&#xe7;&#xe3;o clara de reescrita: <code>{ &quot;action&quot;: &quot;optimize&quot;, &quot;text&quot;: &quot;prompt original cru...&quot; }</code>.","children":[],"payload":{"tag":"li","lines":"8,10"}}],"payload":{"tag":"h3","lines":"6,7"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"2. O Processamento no Edge (Servidor Local)","children":[{"content":"Tr&#xe1;fego e Orquestra&#xe7;&#xe3;o","children":[{"content":"O pacote viaja pelo T&#xfa;nel Cloudflare e &#xe9; recebido pelo <code>FastAPI</code>.","children":[],"payload":{"tag":"li","lines":"12,13"}},{"content":"O orquestrador <code>LangGraph</code> avan&#xe7;a o estado do fluxo de trabalho e aciona o n&#xf3; do <strong>Agente Otimizador</strong>.","children":[],"payload":{"tag":"li","lines":"13,14"}}],"payload":{"tag":"h3","lines":"11,12"}},{"content":"Infer&#xea;ncia Neural (Hardware Local)","children":[{"content":"O cont&#xea;iner do <code>Ollama</code> aloca o processamento na VRAM da GPU.","children":[],"payload":{"tag":"li","lines":"15,16"}},{"content":"O modelo SLM (Llama 3.2 1B quantizado) entra em a&#xe7;&#xe3;o.","children":[],"payload":{"tag":"li","lines":"16,17"}}],"payload":{"tag":"h3","lines":"14,15"}},{"content":"O &quot;Query Rewriting&quot; Silencioso","children":[{"content":"O SLM recebe o <em>System Prompt</em> oculto da sua arquitetura: <em>&quot;Atue como um Engenheiro de Software s&#xea;nior. Reescreva a instru&#xe7;&#xe3;o adicionando clareza de inten&#xe7;&#xe3;o, definindo o formato de sa&#xed;da e aplicando restri&#xe7;&#xf5;es de contexto&quot;</em>.","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"A reescrita ocorre em background, transformando um prompt fraco em uma instru&#xe7;&#xe3;o robusta.","children":[],"payload":{"tag":"li","lines":"19,21"}}],"payload":{"tag":"h3","lines":"17,18"}}],"payload":{"tag":"h2","lines":"10,11"}},{"content":"3. A Inje&#xe7;&#xe3;o no Cliente (Manipula&#xe7;&#xe3;o do DOM)","children":[{"content":"Retorno em Tempo Real","children":[{"content":"O servidor Edge finaliza a gera&#xe7;&#xe3;o do texto e o devolve imediatamente pelo canal WebSocket.","children":[],"payload":{"tag":"li","lines":"23,24"}}],"payload":{"tag":"h3","lines":"22,23"}},{"content":"Substitui&#xe7;&#xe3;o Din&#xe2;mica (JavaScript)","children":[{"content":"A extens&#xe3;o recebe o super-prompt no navegador.","children":[],"payload":{"tag":"li","lines":"25,26"}},{"content":"O <code>Content Script</code> altera o valor do <code>&lt;textarea&gt;</code> (ou injeta no <code>contenteditable</code>) da p&#xe1;gina alvo, substituindo o texto que o usu&#xe1;rio havia digitado originalmente.","children":[],"payload":{"tag":"li","lines":"26,27"}}],"payload":{"tag":"h3","lines":"24,25"}},{"content":"Disparo Automatizado (Simula&#xe7;&#xe3;o de Envio)","children":[{"content":"Para garantir fluidez, o script n&#xe3;o exige que o usu&#xe1;rio aperte <em>Enter</em> novamente.","children":[],"payload":{"tag":"li","lines":"28,29"}},{"content":"A extens&#xe3;o simula um clique program&#xe1;tico no bot&#xe3;o nativo de &quot;Enviar&quot; da plataforma (ChatGPT, Claude ou Gemini), iniciando o processamento comercial do prompt otimizado.","children":[],"payload":{"tag":"li","lines":"29,30"}}],"payload":{"tag":"h3","lines":"27,28"}}],"payload":{"tag":"h2","lines":"21,22"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(()=>{setTimeout(()=>{const{markmap:S,mm:Q}=window,$=new S.Toolbar;$.attach(Q);const I=$.render();I.setAttribute("style","position:absolute;bottom:20px;right:20px"),document.body.append(I)})})()</script><script>((l,U,M,R)=>{const N=l();window.mm=N.Markmap.create("svg#mindmap",(U||N.deriveOptions)(R),M),window.matchMedia("(prefers-color-scheme: dark)").matches&&document.documentElement.classList.add("markmap-dark")})(()=>window.markmap,null,{"content":"Protocolo de Transmiss&#xe3;o (WebSockets)","children":[{"content":"1. Por que WSS e n&#xe3;o REST (HTTP)?","children":[{"content":"Bidirecionalidade (Full-Duplex)","children":[{"content":"Comunica&#xe7;&#xe3;o simult&#xe2;nea e cont&#xed;nua em duas vias.","children":[],"payload":{"tag":"li","lines":"4,5"}},{"content":"O servidor Edge envia os <em>scores</em> ativamente para a extens&#xe3;o.","children":[],"payload":{"tag":"li","lines":"5,6"}},{"content":"Elimina a necessidade da extens&#xe3;o fazer <em>polling</em> (perguntar ao servidor a cada segundo).","children":[],"payload":{"tag":"li","lines":"6,7"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"Baixa Lat&#xea;ncia e Overhead","children":[{"content":"O HTTP tradicional exige a recria&#xe7;&#xe3;o de conex&#xf5;es e o envio de cabe&#xe7;alhos pesados a cada requisi&#xe7;&#xe3;o.","children":[],"payload":{"tag":"li","lines":"8,9"}},{"content":"O WebSocket realiza o <em>handshake</em> (abertura de conex&#xe3;o) apenas uma vez.","children":[],"payload":{"tag":"li","lines":"9,10"}},{"content":"Trafega exclusivamente os dados brutos (texto e JSON), resultando em alt&#xed;ssima economia de banda e processamento.","children":[],"payload":{"tag":"li","lines":"10,12"}}],"payload":{"tag":"h3","lines":"7,8"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"2. Estrutura dos Payloads (Mensagens em JSON)","children":[{"content":"Upstream (Client -&gt; Edge)","children":[{"content":"<strong>Pacotes de Roteamento:</strong>","children":[{"content":"Fun&#xe7;&#xe3;o: Solicitar a vetoriza&#xe7;&#xe3;o do prompt antes do envio para o LLM.","children":[],"payload":{"tag":"li","lines":"15,16"}},{"content":"Formato: <code>{ &quot;type&quot;: &quot;vectorize&quot;, &quot;payload&quot;: &quot;texto do prompt&quot; }</code>","children":[],"payload":{"tag":"li","lines":"16,17"}}],"payload":{"tag":"li","lines":"14,17"}},{"content":"<strong>Pacotes de Streaming:</strong>","children":[{"content":"Fun&#xe7;&#xe3;o: Enviar os blocos de palavras capturados pelo navegador em tempo real.","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"Formato: <code>{ &quot;type&quot;: &quot;chunk&quot;, &quot;msg_id&quot;: &quot;123&quot;, &quot;text&quot;: &quot; fragmento gerado&quot; }</code>","children":[],"payload":{"tag":"li","lines":"19,21"}}],"payload":{"tag":"li","lines":"17,21"}}],"payload":{"tag":"h3","lines":"13,14"}},{"content":"Downstream (Edge -&gt; Client)","children":[{"content":"<strong>Pacotes de Score:</strong>","children":[{"content":"Fun&#xe7;&#xe3;o: Devolver os c&#xe1;lculos matem&#xe1;ticos finalizados para a extens&#xe3;o atualizar a interface visual.","children":[],"payload":{"tag":"li","lines":"23,24"}},{"content":"Formato: <code>{ &quot;type&quot;: &quot;score_update&quot;, &quot;msg_id&quot;: &quot;123&quot;, &quot;entropia&quot;: 0.56, &quot;fidelidade&quot;: 0.83 }</code>","children":[],"payload":{"tag":"li","lines":"24,25"}}],"payload":{"tag":"li","lines":"22,25"}}],"payload":{"tag":"h3","lines":"21,22"}}],"payload":{"tag":"h2","lines":"12,13"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+</body>
+</html>

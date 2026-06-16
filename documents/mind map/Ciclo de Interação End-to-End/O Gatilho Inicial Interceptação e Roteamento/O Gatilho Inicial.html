@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(()=>{setTimeout(()=>{const{markmap:S,mm:Q}=window,$=new S.Toolbar;$.attach(Q);const I=$.render();I.setAttribute("style","position:absolute;bottom:20px;right:20px"),document.body.append(I)})})()</script><script>((l,U,M,R)=>{const N=l();window.mm=N.Markmap.create("svg#mindmap",(U||N.deriveOptions)(R),M),window.matchMedia("(prefers-color-scheme: dark)").matches&&document.documentElement.classList.add("markmap-dark")})(()=>window.markmap,null,{"content":"O Gatilho Inicial (Intercepta&#xe7;&#xe3;o e Roteamento)","children":[{"content":"1. A&#xe7;&#xe3;o do Usu&#xe1;rio","children":[{"content":"Intera&#xe7;&#xe3;o com a Interface","children":[{"content":"Digita&#xe7;&#xe3;o do prompt (ex: &quot;Crie uma macro VBA&quot;) na caixa de texto do chatbot.","children":[],"payload":{"tag":"li","lines":"4,5"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"Disparo do Evento","children":[{"content":"Ocorr&#xea;ncia de uma pausa na digita&#xe7;&#xe3;o (tempo de inatividade capturado via <em>Debounce</em>).","children":[],"payload":{"tag":"li","lines":"6,7"}},{"content":"Ou tentativa direta de envio da mensagem (pressionar a tecla <code>Enter</code> ou clicar no bot&#xe3;o nativo).","children":[],"payload":{"tag":"li","lines":"7,9"}}],"payload":{"tag":"h3","lines":"5,6"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"2. Atua&#xe7;&#xe3;o da Extens&#xe3;o (O Interceptador)","children":[{"content":"Captura Pr&#xe9;-Processamento","children":[{"content":"O <code>Content Script</code> intercepta o evento do navegador.","children":[],"payload":{"tag":"li","lines":"11,12"}},{"content":"Captura a string de texto original da <code>&lt;textarea&gt;</code> milissegundos antes do site conseguir empacotar e enviar o dado.","children":[],"payload":{"tag":"li","lines":"12,13"}}],"payload":{"tag":"h3","lines":"10,11"}},{"content":"Comunica&#xe7;&#xe3;o com o Edge","children":[{"content":"A extens&#xe3;o envia o texto capturado via WebSocket (WSS) para o servidor Ubuntu local.","children":[],"payload":{"tag":"li","lines":"14,15"}},{"content":"O <em>payload</em> tem um objetivo &#xfa;nico e r&#xe1;pido: solicitar apenas a vetoriza&#xe7;&#xe3;o do conte&#xfa;do, sem gerar respostas de texto.","children":[],"payload":{"tag":"li","lines":"15,17"}}],"payload":{"tag":"h3","lines":"13,14"}}],"payload":{"tag":"h2","lines":"9,10"}},{"content":"3. A Decis&#xe3;o Local (Motor Preditivo no IndexedDB)","children":[{"content":"O Retorno Vetorial","children":[{"content":"O servidor Edge devolve o vetor num&#xe9;rico correspondente ao texto recebido.","children":[],"payload":{"tag":"li","lines":"19,20"}}],"payload":{"tag":"h3","lines":"18,19"}},{"content":"A Busca de Similaridade","children":[{"content":"A extens&#xe3;o pega essas coordenadas e faz uma varredura no seu hist&#xf3;rico salvo no <code>IndexedDB</code> do navegador.","children":[],"payload":{"tag":"li","lines":"21,22"}},{"content":"Ocorre o cruzamento estat&#xed;stico: <em>&quot;Para o cluster sem&#xe2;ntico &apos;macros VBA&apos;, o modelo Claude costuma manter 92% de Fidelidade hist&#xf3;rica, enquanto o ChatGPT apresenta apenas 75%.&quot;</em>","children":[],"payload":{"tag":"li","lines":"22,23"}}],"payload":{"tag":"h3","lines":"20,21"}},{"content":"Interven&#xe7;&#xe3;o Visual na Interface","children":[{"content":"A extens&#xe3;o manipula o DOM provisoriamente.","children":[],"payload":{"tag":"li","lines":"24,25"}},{"content":"Sobrep&#xf5;e um <em>pop-up</em> flutuante n&#xe3;o intrusivo na tela do usu&#xe1;rio.","children":[],"payload":{"tag":"li","lines":"25,26"}},{"content":"O painel exibe a previs&#xe3;o preditiva e apresenta um bot&#xe3;o sugerindo a migra&#xe7;&#xe3;o para o Claude junto com a aplica&#xe7;&#xe3;o do <em>Query Rewriting</em> (melhoria do prompt).","children":[],"payload":{"tag":"li","lines":"26,27"}}],"payload":{"tag":"h3","lines":"23,24"}}],"payload":{"tag":"h2","lines":"17,18"}}],"payload":{"tag":"h1","lines":"0,1"}},null)</script>
+</body>
+</html>
